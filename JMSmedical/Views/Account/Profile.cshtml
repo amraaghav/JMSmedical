@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2 class="text-xl font-bold mb-4">Profile</h2>
+
+@if (ViewBag.Username == null)
+{
+    <p class="text-gray-700">You are not logged in. Please log in to access your profile.</p>
+    <a asp-controller="Account" asp-action="Login" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        Login
+    </a>
+}
+else
+{
+    <p class="text-gray-700">Welcome, @ViewBag.Username!</p>
+
+    <a asp-controller="Account" asp-action="UserProfile" class="block w-full bg-blue-500 text-white text-center p-2 rounded hover:bg-blue-600 mb-2">
+        User Profile
+    </a>
+
+    <a asp-controller="Account" asp-action="Orders" class="block w-full bg-green-500 text-white text-center p-2 rounded hover:bg-green-600 mb-2">
+        Orders
+    </a>
+
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <button type="submit" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600">
+            Logout
+        </button>
+    </form>
+}

@@ -1,0 +1,119 @@
+﻿@model JMSmedical.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+<h2 class="text-2xl font-bold text-center mt-8">Welcome to JMS Medical</h2>
+<p class="text-center text-gray-600 mt-2">Your trusted online pharmacy and healthcare platform.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .row .col-md-2 col-sm-6 col-6 {
+            padding: 10px;
+        }
+        .row{
+            display: flex;
+            justify-content: center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            align-items: center;
+        }
+
+
+        body {
+            margin-bottom: 60px;
+            background-color:white;
+        }
+
+        .img-fluid {
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .text-center {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            justify-content: center;
+        }
+
+        .img-fluid1 {
+            border-radius: 10px;
+            padding: 50px;
+            background-position: center;
+        }
+    </style>
+    </head>
+    <body>
+    
+<div class="container mt-4">
+    <!-- Home Banner -->
+    <div class="text-center">
+        <img src="~/Images/Banner.jpg" alt="Home Banner" class="img-fluid" style="width: 100%; max-height: 400px; object-fit: cover;">
+    </div>
+    <div class="container mt-4">
+        <p class="text-center"><span>JMS</span>Medical - Leading Online Pharmacy</p>
+<h2 class="text-center mt-4">Shop by Health Concerns</h2>
+<div class="row">
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Diabetes.jpg" class="img-fluid" alt="Diabetes">
+        <p class="text-center">Diabetes</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Bone.jpg" class="img-fluid" alt="Bone, Joint & Muscle Care">
+        <p class="text-center">Bone, Joint & Muscle Care</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Derma Care.jpg" class="img-fluid" alt="Derma Care">
+        <p class="text-center">Derma Care</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Stomach Care.jpg" class="img-fluid" alt="Stomach Care">
+        <p class="text-center">Stomach Care</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Liver Care.jpg" class="img-fluid" alt="Liver Care">
+        <p class="text-center">Liver Care</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Heart Care.jpg" class="img-fluid" alt="Heart Care">
+        <p class="text-center">Heart Care</p>
+    </div>
+</div>
+</div>
+</div>
+<h2 class="text-center mt-4">Winter care essential</h2>
+<form class="winter">
+<div class="row">
+    <div class="col-md-2 col-sm-6 col-6">
+                    <img src="~/Images/Chyavanprash.jpg" class="img-fluid1" alt="Zandu Chyavanprash">
+        <p class="text-center">Zandu Chyavanprash</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+                    <img src="~/Images/Patanjali chayawanprash.jpg" class="img-fluid1" alt="Patanjali Ayurveda Special Chayawanprash">
+        <p class="text-center">Patanjali Chayawanprash</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/GreenTea.jpg" class="img-fluid1" alt="Green Tea">
+        <p class="text-center">Tetley Green Tea</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Honey.jpg" class="img-fluid1" alt="Natural Honey">
+        <p class="text-center">Sri Sri Tattva Natural Honey</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-6">
+        <img src="~/Images/Zandu honey.jpg" class="img-fluid1" alt="Zandu Pure Honey">
+        <p class="text-center">Zandu Pure Honey with No Added Sugar</p>
+    </div>  
+</div>
+</form>
+</body>
+</html>
+        <footer class="bg-light text-center mt-4 p-3">
+            &copy; 2025 JMS Medical. All rights reserved.
+        </footer>

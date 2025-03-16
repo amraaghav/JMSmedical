@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "User Profile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50">
+    <a href="@Url.Action("Profile", "Account")" class="btn btn-primary">Back to Profile</a>
+
+    <div class="max-w-2xl mx-auto pt-10">
+        <!-- User Profile Header -->
+        <h2 class="text-lg text-gray-600 font-semibold">User Profile</h2>
+
+        <!-- Profile Container -->
+        <div class="bg-white rounded-lg shadow-lg mt-4">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-gray-900">Hi there!</h1>
+            </div>
+        </div>
+
+        <!-- Profile Info Cards -->
+        <div class="mt-4 bg-white rounded-lg shadow-lg">
+            <!-- Mobile Number -->
+            <div class="flex items-center justify-between p-4 border-b">
+                <div class="flex items-center space-x-3">
+                    <img src="https://img.icons8.com/ios/50/phone.png" class="w-6 h-6" alt="Phone Icon" />
+                    <div>
+                        <h3 class="text-gray-600 font-semibold">Mobile Number</h3>
+                        <p class="text-gray-800 font-medium">+91 6202813534</p>
+                    </div>
+                </div>
+                <a href="#" class="text-red-500 font-semibold">Edit</a>
+            </div>
+
+            <!-- Primary Email -->
+            <div class="flex items-center justify-between p-4 border-b">
+                <div class="flex items-center space-x-3">
+                    <img src="https://img.icons8.com/ios/50/email.png" class="w-6 h-6" alt="Email Icon" />
+                    <div>
+                        <h3 class="text-gray-600 font-semibold">Primary Email address</h3>
+                        <p class="text-gray-800 font-medium">Vinaysingh85400@gmail.com</p>
+                    </div>
+                </div>
+                <a href="#" class="text-red-500 font-semibold">Edit</a>
+            </div>
+
+            <!-- Work Email -->
+            <div class="flex items-center justify-between p-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://img.icons8.com/ios/50/work.png" class="w-6 h-6" alt="Work Icon" />
+                    <div>
+                        <h3 class="text-gray-600 font-semibold">Work Email address</h3>
+                        <p class="text-gray-400 font-medium">Add email address</p>
+                    </div>
+                </div>
+                <a href="#" class="text-red-500 font-semibold">Edit</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

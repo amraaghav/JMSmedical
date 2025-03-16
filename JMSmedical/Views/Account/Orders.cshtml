@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "My Orders";
+    var orders = ViewBag.Orders as List<string>;
+}
+
+<h2>My Orders</h2>
+
+@if (orders != null && orders.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in orders)
+            {
+                var orderDetails = order.Split('-'); // Splitting order string into ID & details
+                <tr>
+                    <td>@orderDetails[0].Trim()</td>
+                    <td>@orderDetails[1].Trim()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found.</p>
+}
+
+<a href="@Url.Action("Profile", "Account")" class="btn btn-primary">Back to Profile</a>
