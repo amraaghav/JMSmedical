@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-
-namespace JMSmedical.Models
+﻿namespace JMSmedical.Controllers
 {
-    public class Category
+    internal class Products
     {
         public int Id { get; set; }
         public required string Name { get; set; }
@@ -16,6 +13,5 @@ namespace JMSmedical.Models
         public required string Badge { get; set; }
         public required string TimeLeft { get; set; }
         public required string Quantity { get; set; }
-
     }
 }

@@ -1,5 +1,7 @@
 ﻿using JMSmedical.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JMSmedical.Controllers
 {
@@ -11,25 +13,31 @@ namespace JMSmedical.Controllers
             {
                 Categories = new List<Category>
                 {
-                    new Category { Id="1", Name = "Diabetes", ImageUrl = "wwwroot/Images/Diabetes.jpg" },
-                    new Category { Id="2", Name = "Bone, Joint & Muscle Care", ImageUrl = "wwwroot/Images/Bone.jpg" },
-                    new Category { Id="3", Name = "Derma Care", ImageUrl = "wwwroot/Images/Derma Care.jpg" },
-                    new Category { Id="4", Name = "Stomach Care", ImageUrl = "wwwroot/Images/Stomach Care.jpg" },
-                    new Category { Id="5", Name = "Liver Care", ImageUrl = "wwwroot/Images/Liver Care.jpg" },
-                    new Category { Id="6", Name = "Heart Care", ImageUrl = "wwwroot/Images/Heart Care.jpg" }
+                    new Category { Id = 1,  Name = "Diabetes", ImageUrl = "/Images/Diabetes.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder" },
+                    new Category { Id = 2, Name = "Bone, Joint & Muscle Care", ImageUrl = "/Images/Bone.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder" },
+                    new Category { Id = 3, Name = "Derma Care", ImageUrl = "/Images/Derma Care.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder"},
+                    new Category { Id = 4, Name = "Stomach Care", ImageUrl = "/Images/Stomach Care.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder" },
+                    new Category { Id = 5, Name = "Liver Care", ImageUrl = "/Images/Liver Care.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder"},
+                    new Category { Id = 6, Name = "Heart Care", ImageUrl = "/Images/Heart Care.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder"}
                 },
-                WinterEssentials = new List<Product>
+                WinterEssentials = new List<Products>
                 {
-                    new Product { Id="7", Name = "Zandu Chyavanprash", ImageUrl = "wwwroot/Images/Chyavanprash.jpg" },
-                    new Product { Id="8", Name = "Patanjali Ayurveda Special Chyawanprash", ImageUrl = "wwwroot/Images/Patanjali ChyaVanprash.jpg" },
-                    new Product { Id="9", Name = "Tetley Green Tea", ImageUrl = "wwwroot/Images/GreenTea.jpg" },
-                    new Product { Id="10", Name = "Sri Sri Tattva Natural Honey", ImageUrl = "wwwroot/Images/Honey.jpg" },
-                    new Product { Id="11", Name = "Zandu Pure Honey", ImageUrl = "wwwroot/Images/Zandu honey.jpg" }
+                    new Products { Id=7, Name = "Zandu Chyavanprash", ImageUrl = "/Images/Chyavanprash.jpg", Price = 278, MRP = 300, Discount = 7, Rating = 4.2, Reviews = 250, Badge = "", TimeLeft = "", Quantity = "500gm bottle" },
+                    
+                },
+                Products = new List<Product>
+                {
+                    new Product { Id = 1, Name = "Zandu Chyavanprash", ImageUrl = "/Images/Chyavanprash.jpg", Price = 676, MRP = 760, Discount = 11, Rating = 4.3, Reviews = 575, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "box of 400 gm Powder" },
+                    new Product { Id = 2, Name = "Patanjali Ayurveda Special Chyawanprash", ImageUrl = "/Images/Patanjali chayawanprash.jpg", Price = 983, MRP = 1199, Discount = 18, Rating = 4.0, Reviews = 1707, Badge = "", TimeLeft = "", Quantity = "packet of 1 Kit" },
+                    new Product { Id = 3, Name = "Tetley Green Tea", ImageUrl = "/Images/GreenTea.jpg", Price = 285, MRP = 335, Discount = 15, Rating = 4.4, Reviews = 1532, Badge = "BEST SELLER", TimeLeft = "", Quantity = "bottle of 1 Ltr Juice" },
+                    new Product { Id = 4, Name = "Sri Sri Tattva Natural Honey", ImageUrl = "/Images/Honey.jpg", Price = 1551, MRP = 1825, Discount = 15, Rating = 4.5, Reviews = 900, Badge = "SALE", TimeLeft = "4 days 2 hrs", Quantity = "combo pack of 2 Packs" },
+                    new Product { Id = 8, Name = "Zandu Pure Honey", ImageUrl = "/Images/Zandu honey.jpg", Price = 350, MRP = 400, Discount = 12, Rating = 4.5, Reviews = 400, Badge = "BEST SELLER", TimeLeft = "", Quantity = "1kg bottle" }
                 }
             };
 
             return View(model);
         }
+
         public IActionResult Medicines()
         {
             return View();
@@ -48,6 +56,6 @@ namespace JMSmedical.Controllers
         public IActionResult Help()
         {
             return View();
-        }
+        } 
     }
 }

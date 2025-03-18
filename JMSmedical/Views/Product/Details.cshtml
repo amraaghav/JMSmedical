@@ -1,0 +1,16 @@
+﻿@model JMSmedical.Models.Product
+
+<h2>@Model.Name</h2>
+<img src="@Model.ImageUrl" width="150" height="150" />
+<p>Price: ₹@Model.Price</p>
+<button onclick="addToCart(@Model.Id, '@Model.Name', @Model.Price)" class="btn btn-success">Add to Cart</button>
+
+<script>
+    function addToCart(id, name, price) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ id, name, price, quantity: 1 });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart!");
+        window.location.href = "/Cart/ViewCart";
+    }
+</script>
