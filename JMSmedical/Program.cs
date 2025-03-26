@@ -1,29 +1,40 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using JMSmedical.Models;
+using JMSmedical.Data;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args); // ✅ Declare builder first
+
+// ✅ Add Database Context (Fix the Error)
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// ✅ Add MVC and Session Services
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession();
+builder.Services.AddSession(); // Add session support
 
-var app = builder.Build();
+var app = builder.Build(); // ✅ Build the app after configuration
 
-// Configure the HTTP request pipeline.
+// ✅ Configure Middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-app.UseSession();
-
 app.UseAuthorization();
+app.UseSession(); // Enable session support
 
+// ✅ Set Default Route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.Run(); // ✅ Run the application

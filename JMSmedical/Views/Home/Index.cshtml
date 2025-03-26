@@ -7,104 +7,107 @@
 <h2 class="text-2xl font-bold text-center mt-8">Welcome to JMS Medical</h2>
 <p class="text-center text-gray-600 mt-2">Your trusted online pharmacy and healthcare platform.</p>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        .row .col-md-2 col-sm-6 col-6 {
-            padding: 10px;
-        }
-
-        .row {
+        .product-container {
             display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
             justify-content: center;
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            align-items: center;
-        }
-
-        body {
-            margin-bottom: 60px;
-            background-color: white;
-        }
-
-        .img-fluid {
-            border-radius: 10px;
+            gap: 20px;
             padding: 10px;
         }
 
-        .text-center {
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-            justify-content: center;
+        .product-card {
+            text-align: center;
+            min-width: 150px;
+            cursor: pointer; /* Cursor pointer to indicate it's clickable */
         }
 
-        .img-fluid1 {
-            border-radius: 10px;
-            padding: 50px;
-            background-position: center;
-        }
+            .product-card img {
+                width: 120px;
+                height: 120px;
+                margin-left:30px;
+                object-fit: cover;
+                transition: transform 0.2s ease-in-out;
+            }
+
+                .product-card img:hover {
+                    transform: scale(1.1); /* Slight zoom effect */
+                }
 
         .product-info {
-            text-align: center;
             font-size: 14px;
             color: #555;
+            margin-top: 5px;
         }
 
             .product-info strong {
                 color: #000;
             }
-    </style>
-</head>
-<body>
 
+        .discount {
+            color: red;
+            font-weight: bold;
+        }
+
+        .img-fluid1{
+            margin-left: 30px;
+        }
+    </style>
+
+    <script>
+        function addToCart(productId) {
+            window.location.href = `/Cart/AddToCart?id=${productId}`;
+        }
+    </script>
+</head>
+
+<div class="container mt-4">
+    <!-- Home Banner -->
+    <div class="text-center">
+        <img src="~/Images/Banner.jpg" alt="Home Banner" class="img-fluid" style="width: 100%; max-height: 400px; object-fit: cover;">
+    </div>
+
+    <!-- Shop by Health Concerns -->
     <div class="container mt-4">
-        <!-- Home Banner -->
-        <div class="text-center">
-            <img src="~/Images/Banner.jpg" alt="Home Banner" class="img-fluid" style="width: 100%; max-height: 400px; object-fit: cover;">
-        </div>
-        <div class="container mt-4">
-            <p class="text-center"><span>JMS</span>Medical - Leading Online Pharmacy</p>
-            <h2 class="text-center mt-4">Shop by Health Concerns</h2>
-            <div class="row">
-                @foreach (var category in Model.Categories)
-                {
-                    <div class="col-md-2 col-sm-6 col-6">
-                        <img src="@category.ImageUrl" class="img-fluid" alt="@category.Name">
-                        <p class="category-info">
-                            <strong>@category.Name</strong> | @category.Quantity <br>
-                            ⭐ @category.Rating (@category.Reviews ratings) <br>
-                            MRP ₹@category.MRP <span style="color: red;">@category.Discount% off</span> <br>
-                            <strong>₹@category.Price</strong>
-                        </p>
-                    </div>
-                }
-            </div>
+        <h2 class="text-center mt-4">Shop by Health Concerns</h2>
+        <div class="product-container">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="product-card" onclick="addToCart(@category.Id)">
+                    <img src="@category.ImageUrl" class="img-fluid" alt="@category.Name">
+                    <p class="product-info">
+                        <strong>@category.Name</strong> | @category.Quantity <br>
+                        ⭐ @category.Rating (@category.Reviews ratings) <br>
+                        MRP ₹@category.MRP <span class="discount">@category.Discount% off</span> <br>
+                        <strong>₹@category.Price</strong>
+                    </p>
+                </div>
+            }
         </div>
     </div>
 
-    <h2 class="text-center mt-4">Winter care essential</h2>
-    <form class="winter">
-        <div class="row">
+    <!-- Winter Care Essentials -->
+    <div class="container mt-4">
+        <h2 class="text-center mt-4">Winter Care Essentials</h2>
+        <div class="product-container">
             @foreach (var product in Model.Products)
             {
-                <div class="col-md-2 col-sm-6 col-6">
+                <div class="" onclick="addToCart(@product.Id)">
                     <img src="@product.ImageUrl" class="img-fluid1" alt="@product.Name">
                     <p class="product-info">
                         <strong>@product.Name</strong> | @product.Quantity <br>
                         ⭐ @product.Rating (@product.Reviews ratings) <br>
-                        MRP ₹@product.MRP <span style="color: red;">@product.Discount% off</span> <br>
+                        MRP ₹@product.MRP <span class="discount">@product.Discount% off</span> <br>
                         <strong>₹@product.Price</strong>
                     </p>
                 </div>
             }
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</div>
 
 <footer class="bg-light text-center mt-4 p-3">
     &copy; 2025 JMS Medical. All rights reserved.
